@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<link href="css/hover.css" rel="stylesheet" media="all">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>和乐居装饰</title>
+<style type="text/css">
+.top {
+	height: 70px;
+	border: "1";
+	max-width: 100%;
+	min-width: 960px;
+	background: #F2F2F2;
+}
+
+.na {
+	padding-top: 20px;
+	width: 150px;
+	font: 14px/18px "Trebuchet MS", Arial, Helvetica, sans-serif;
+	text-align: center;
+}
+
+.slides_container {
+	width: 960px;
+	height: 500px;
+}
+
+.slides_container div {
+	width: 960px;
+	height: 500px;
+	display: block;
+}
+
+.pagination li {
+	float: right;
+	position: relative;
+	top: -10px;
+	margin: 0 1px;
+	list-style: none;
+}
+
+.pagination li a {
+	display: block;
+	width: 12px;
+	height: 0;
+	padding-top: 12px;
+	background-image: url(images/pagination.png);
+	background-position: 0 0;
+	float: left;
+	overflow: hidden;
+}
+
+.pagination li.current a {
+	background-position: 0 -12px;
+}
+</style>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/slides.min.jquery.js"></script>
+<script>
+	$(function() {
+		//启动图片展示栏
+		$("#slides").slides({
+			bigTarget : true,
+			preload : true,
+			generatePagination : true,
+			play : 4000,
+			pause : 4000,
+			hoverPause : true
+		});
+	});
+</script>
+</head>
+
+<body
+	style="background-image: url('images/groovepaper.png'); z-index: 0; background-repeat: repeat; margin: 0; padding: 0;">
+	<div class="top">
+		<div
+			style="width: 960px; height: 70px; margin-bottom: 0px; margin-left: auto; margin-right: auto; margin-top: 0;">
+			<table border="0">
+				<tr>
+					<td width="500px"><span style="width: 500px">logo</span></td>
+					<td class="na"><a class="button wobble-horizontal" href="home"
+						style="height: 10px; color: black;">首&nbsp;&nbsp;页</a></td>
+					<td class="na"><a class="button wobble-horizontal" href="cases"
+						style="height: 10px;">装修案例</a></td>
+					<td class="na"><a class="button wobble-horizontal" href="aboutUs"
+						style="height: 10px;">公司概况</a></td>
+					<td class="na"><a class="button wobble-horizontal" href="events"
+						style="height: 10px;">活动推广</a></td>
+					<td class="na"><a class="button wobble-horizontal" href="designTeam"
+						style="height: 10px;">设计团队</a></td>
+					<td class="na"><a class="button wobble-horizontal" href="knowledgeDecoration"
+						style="height: 10px;">装修知识</a></td>
+					<td class="na"><a class="button wobble-horizontal" href="contactUs"
+						style="height: 10px;">联系方式</a></td>
+				</tr>
+			</table>
+		</div>
+		<hr color="gray" style="margin-top: 0px;"/>
+	</div>
+	<div
+		style="width: 960px; margin-bottom: 0px; margin-left: auto; margin-right: auto; margin-top: 15;">
+		<div style="background-color: white;height: 540px;width: 1000px;">
+			<center>
+				<br />
+					<div id="slides">
+						<div class="slides_container">
+							<div>
+								<img src="images/index01.jpg" style="width: 960px;height: 500px;">
+							</div>
+							<div>
+								<img src="images/index02.jpg" style="width: 960px;height: 500px;">
+							</div>
+							<div>
+								<img src="images/index03.jpg" style="width: 960px;height: 500px;">
+							</div>
+							<div>
+								<img src="images/index04.jpg" style="width: 960px;height: 500px;">
+							</div>
+							<div>
+								<img src="images/index05.jpg" style="width: 960px;height: 500px;">
+							</div>
+						</div>
+					</div>
+			</center>
+		</div>
+	</div>
+	<div
+		style="width: 960px; margin-bottom: 0px; margin-left: auto; margin-right: auto; margin-top: 18;">
+		<table width="960px;" style="" border="1" frame="void">
+			<tr>
+				<!-- 公司简介 -->
+				<td width="550px;" height="300px;"
+					style="border: 1; border-left: 0; border-top: 0; border-bottom: 0;border-right: 1;border-right-style: ridge;">
+					<div style="height: 100%">
+						<label>公司简介</label>
+						<br />
+					</div>
+				</td>
+				<!-- 活动新闻 -->
+				<td style="border: 0">
+					<div style="height: 100%;">
+						<label>活动新闻</label>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<!-- 实景案例 -->
+				<td colspan="2" height="200px;"
+					style="border: 1; border-left: 0; border-top: 1; border-bottom: 1; border-right: 0; border-top-style: ridge;border-bottom-style: ridge;">
+					<div style="height: 100%">
+						<label>实景案例</label>
+						<br />
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<!-- 设计团队 -->
+				<td height="230px;"
+					style="border: 1; border-left: 0; border-top: 0; border-bottom: 0;border-right: 1;border-right-style: ridge;">
+					<div style="height: 100%">
+						<label>设计团队</label>
+						<br />
+					</div>
+				</td>
+				<!-- 装修知识 -->
+				<td style="border: 0;">
+					<div style="height: 100%">
+						<label>装修知识</label>
+						<br />
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<img src="images/split.png" width="100%" height="20px;"
+		style="min-width: 960px;" />
+	<div
+		style="width: 960px; margin-bottom: 0px; margin-left: auto; margin-right: auto; margin-top: 18;">
+		<!-- <hr style="border-color:gray;border:1;border-top:1px;min-width: 960px; max-width: 100%"/>  -->
+		<p align="center" style="color: gray">
+			©2014 HeLeZS Inc.<br /> HeLeZS® The new way to design your home™
+		</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<package name="helezs-default" extends="json-default">
+		<default-action-ref name="tohome"></default-action-ref>
+		<action name="tohome">
+			<result type="redirectAction">home</result>
+		</action>
+		<!-- 首页 -->
+		<action name="home" class="com.helezs.action.home.HomePageAction">
+			<result name="success">WEB-INF/home/home.html</result>
+		</action>
+		<!-- 装修案例 -->
+		<action name="cases" class="com.helezs.action.cases.CasesPageAction">
+			<result name="success">WEB-INF/cases/cases.html</result>
+		</action>
+		<!-- 公司概况 -->
+		<action name="aboutUs" class="com.helezs.action.aboutUs.AboutUsPageAction">
+			<result name="success">WEB-INF/aboutUs/aboutUs.html</result>
+		</action>
+		<!-- 活动推广 -->
+		<action name="events" class="com.helezs.action.events.EventsPageAction">
+			<result name="success">WEB-INF/events/events.html</result>
+		</action>
+		<!-- 设计团队 -->
+		<action name="designTeam"
+			class="com.helezs.action.designTeam.DesignTeamPageAction">
+			<result name="success">WEB-INF/designTeam/designTeam.html</result>
+		</action>
+		<!-- 装修知识 -->
+		<action name="knowledgeDecoration"
+			class="com.helezs.action.knowledgeDecoration.KnowledgeDecorationPageAction">
+			<result name="success">WEB-INF/knowledgeDecoration/knowledgeDecoration.html</result>
+		</action>
+		<!-- 联系方式 -->
+		<action name="contactUs"
+			class="com.helezs.action.contactUs.ContactUsPageAction">
+			<result name="success">WEB-INF/contactUs/contactUs.html</result>
+		</action>
+	</package>
+</struts>
