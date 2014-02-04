@@ -33,7 +33,7 @@
 }
 
 .pagination li {
-	float: right;
+	float: center;
 	position: relative;
 	top: -10px;
 	margin: 0 1px;
@@ -41,7 +41,7 @@
 }
 
 .pagination li a {
-	display: block;
+	display: inline;
 	width: 12px;
 	height: 0;
 	padding-top: 12px;
@@ -63,10 +63,11 @@
 		$("#slides").slides({
 			bigTarget : true,
 			preload : true,
-			generatePagination : true,
+			preloadImage: '/images/loading.gif',
+			generatePagination : false,
 			play : 4000,
 			pause : 4000,
-			hoverPause : true
+			hoverPause : true,
 		});
 	});
 </script>
