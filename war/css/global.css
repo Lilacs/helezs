@@ -1,0 +1,14 @@
+.top {
+	height: 70px;
+	border: "1";
+	max-width: 100%;
+	min-width: 960px;
+	background: #F2F2F2;
+}
+
+.na {
+	padding-top: 20px;
+	width: 150px;
+	font: 14px/18px "Trebuchet MS", Arial, Helvetica, sans-serif;
+	text-align: center;
+}
