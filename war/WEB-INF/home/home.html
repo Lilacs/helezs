@@ -18,7 +18,10 @@
 	display: block;
 }
 </style>
-<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+!window.jQuery && document.write('<script src=http://lib.sinaapp.com/js/jquery/1.8.3/jquery.min.js><\/script>');
+</script>
 <script src="js/slides.min.jquery.js"></script>
 <script>
 	$(function() {
@@ -36,58 +39,62 @@
 </script>
 </head>
 
-<body
-	style="background-image: url('images/groovepaper.png'); z-index: 0; background-repeat: repeat; margin: 0; padding: 0;">
+<body class="mainBody">
+	<div style="position:fixed; width:140px; height:100px; visibility:visible; right: 0px; bottom: 10px; border: 0px;z-index: 99;">
+		<img src="images/iwant.gif" style="cursor: pointer;"/>
+		<img src="images/iwant2.gif" style="cursor: pointer;"/>
+	</div>
 	<div class="top">
-		<div
-			style="width: 960px; height: 70px; margin-bottom: 0px; margin-left: auto; margin-right: auto; margin-top: 0;">
+		<div style="width: 960px; height: 70px; margin-bottom: 0px; margin-left: auto; margin-right: auto; margin-top: 0;">
+			<span style="color: #6CAC05;right: 10px;top:5px;white-space:nowrap;font-size: 14;position:absolute;">
+				<table>
+					<tr>
+						<td valign="middle"><img src="images/phone.png" style="margin-top: -3px;"/></td>
+						<td valign="middle"><span  style="color: #6CAC05;">装修热线：0530-8888888</span></td>
+					</tr>
+				</table>
+			</span>
 			<table border="0">
 				<tr>
-					<td width="500px"><span style="width: 500px">logo</span></td>
-					<td class="na"><a class="button wobble-horizontal" href="home"
-						style="height: 10px; color: black;">首&nbsp;&nbsp;页</a></td>
-					<td class="na"><a class="button wobble-horizontal" href="cases"
-						style="height: 10px;">装修案例</a></td>
-					<td class="na"><a class="button wobble-horizontal" href="aboutUs"
-						style="height: 10px;">公司概况</a></td>
-					<td class="na"><a class="button wobble-horizontal" href="events"
-						style="height: 10px;">活动推广</a></td>
-					<td class="na"><a class="button wobble-horizontal" href="designTeam"
-						style="height: 10px;">设计团队</a></td>
-					<td class="na"><a class="button wobble-horizontal" href="knowledgeDecoration"
-						style="height: 10px;">装修知识</a></td>
-					<td class="na"><a class="button wobble-horizontal" href="contactUs"
-						style="height: 10px;">联系方式</a></td>
+					<td><img src="images/logo.png"/></td>
+					<td>
+					<table style="margin-top: 40px;margin-left: 80px;">
+						<tr>
+							<td width="45px;"><a href="home" style="height: 10px;text-decoration:none;">首页</a></td>
+							<td width="70px;"><a href="cases" style="height: 10px;text-decoration:none;">装修案例</a></td>
+							<td width="70px;"><a href="aboutUs" style="height: 10px;text-decoration:none;">公司概况</a></td>
+							<td width="70px;"><a href="events" style="height: 10px;text-decoration:none;">活动推广</a></td>
+							<td width="70px;"><a href="designTeam" style="height: 10px;text-decoration:none;">设计团队</a></td>
+							<td width="70px;"><a href="knowledgeDecoration" style="height: 10px;text-decoration:none;">装修知识</a></td>
+							<td width="70px;"><a href="contactUs" style="height: 10px;text-decoration:none;">联系方式</a></td>
+						</tr>
+					</table>
+					</td>
 				</tr>
 			</table>
 		</div>
-		<hr color="gray" style="margin-top: 0px;"/>
+		<hr color="#6CAC05;" style="margin-top: 0px;"/>
 	</div>
-	<div
-		style="width: 960px; margin-bottom: 0px; margin-left: auto; margin-right: auto; margin-top: 15;">
-		<div style="background-color: white;height: 540px;width: 1000px;">
-			<center>
-				<br />
-					<div id="slides">
-						<div class="slides_container">
-							<div>
-								<img src="images/index01.jpg" style="width: 960px;height: 500px;">
-							</div>
-							<div>
-								<img src="images/index02.jpg" style="width: 960px;height: 500px;">
-							</div>
-							<div>
-								<img src="images/index03.jpg" style="width: 960px;height: 500px;">
-							</div>
-							<div>
-								<img src="images/index04.jpg" style="width: 960px;height: 500px;">
-							</div>
-							<div>
-								<img src="images/index05.jpg" style="width: 960px;height: 500px;">
-							</div>
-						</div>
-					</div>
-			</center>
+	
+	<div style="width: 960px; margin-bottom: 0px; margin-left: auto; margin-right: auto; margin-top: 10;border-radius:3em;overflow:hidden;">
+		<div id="slides">
+			<div class="slides_container">
+				<div>
+					<img src="images/index01.jpg" style="width: 960px;height: 500px;border-radius:3em;">
+				</div>
+				<div>
+					<img src="images/index02.jpg" style="width: 960px;height: 500px;border-radius:3em;">
+				</div>
+				<div>
+					<img src="images/index03.jpg" style="width: 960px;height: 500px;border-radius:3em;">
+				</div>
+				<div>
+					<img src="images/index04.jpg" style="width: 960px;height: 500px;border-radius:3em;">
+				</div>
+				<div>
+					<img src="images/index05.jpg" style="width: 960px;height: 500px;border-radius:3em;">
+				</div>
+			</div>
 		</div>
 	</div>
 	<div
@@ -95,15 +102,14 @@
 		<table width="960px;" style="" border="1" frame="void">
 			<tr>
 				<!-- 公司简介 -->
-				<td width="550px;" height="300px;"
-					style="border: 1; border-left: 0; border-top: 0; border-bottom: 0;border-right: 1;border-right-style: ridge;">
+				<td width="550px;" height="300px;" valign="top">
 					<div style="height: 100%">
 						<label>公司简介</label>
 						<br />
 					</div>
 				</td>
 				<!-- 活动新闻 -->
-				<td style="border: 0">
+				<td valign="top">
 					<div style="height: 100%;">
 						<label>活动新闻</label>
 					</div>
@@ -111,8 +117,7 @@
 			</tr>
 			<tr>
 				<!-- 实景案例 -->
-				<td colspan="2" height="200px;"
-					style="border: 1; border-left: 0; border-top: 1; border-bottom: 1; border-right: 0; border-top-style: ridge;border-bottom-style: ridge;">
+				<td colspan="2" height="200px;" valign="top">
 					<div style="height: 100%">
 						<label>实景案例</label>
 						<br />
@@ -121,15 +126,14 @@
 			</tr>
 			<tr>
 				<!-- 设计团队 -->
-				<td height="230px;"
-					style="border: 1; border-left: 0; border-top: 0; border-bottom: 0;border-right: 1;border-right-style: ridge;">
+				<td height="230px;" valign="top">
 					<div style="height: 100%">
 						<label>设计团队</label>
 						<br />
 					</div>
 				</td>
 				<!-- 装修知识 -->
-				<td style="border: 0;">
+				<td  valign="top">
 					<div style="height: 100%">
 						<label>装修知识</label>
 						<br />

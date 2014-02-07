@@ -2,13 +2,41 @@
 	height: 70px;
 	border: "1";
 	max-width: 100%;
-	min-width: 960px;
-	background: #F2F2F2;
+	min-width: 1000px;
+	background: #262626;
+	position:relative;
 }
 
 .na {
 	padding-top: 20px;
-	width: 150px;
-	font: 14px/18px "Trebuchet MS", Arial, Helvetica, sans-serif;
+	width: 200px;
+	font: 12px/12px "Trebuchet MS", Arial, Helvetica, sans-serif;
 	text-align: center;
+}
+.mainBody{
+	background-image: url('../images/background.png');
+	z-index: 0;
+	background-repeat: repeat;
+	margin: 0;
+	padding: 0;
+	margin-left: 0px;
+	padding-left: 0px;
+}
+a:link{
+	height: 10px;
+	color: white;
+	text-decoration:none;
+	font-family:tahoma,arial,'Hiragino Sans GB',宋体,sans-serif;
+	
+}
+a:visited{
+	height: 10px;
+	color: white;
+	text-decoration:none;
+	font-family:tahoma,arial,'Hiragino Sans GB',宋体,sans-serif;
+}
+a:hover{
+	height: 10px;
+	color: #6CAC05;
+	text-decoration:none;
 }
