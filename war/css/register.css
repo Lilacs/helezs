@@ -1,0 +1,15 @@
+.customerRegister {
+	margin-top: 20px;
+	color: #555555;
+}
+
+.explanation {
+	color: gray;
+	font-size: 8;
+	font-style: italic;
+	margin-left: 130px;
+}
+
+.requiredFields {
+	color: red;
+}

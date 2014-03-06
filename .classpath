@@ -17,5 +17,7 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/spring.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/struts2-json-plugin-2.1.8.1.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/struts2-spring-plugin-2.1.8.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/json_simple-1.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-webmvc.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
