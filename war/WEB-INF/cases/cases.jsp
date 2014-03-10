@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -50,14 +49,14 @@
 						<td></td>
 					</tr>
 				</thead>
-				<s:iterator value="decorationCaseWritings" var="writings">
+				<%-- <s:iterator value="decorationCaseWritings" var="writings">
 					<tr height="20px;">
 						<td><img src="images/marked.png"/></td>
 						<td width="400px;"><a style="cursor: pointer;!color: black;" href="casesText?id=${writings.id }"><s:property value="#writings.title"/></a></td>
 						<td width="70px;"><span style="color: gray;font-size: 10;cursor: default;"><s:date name="#writings.creationTimeD" format="yyyy-MM-dd"/></span></td>
 						<td><s:if test="#writings.top == true"><img src="images/news.png"/></s:if></td>
 					</tr>
-				</s:iterator>
+				</s:iterator> --%>
 			</table>
 		</div>
 	</div>

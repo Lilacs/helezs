@@ -6,25 +6,28 @@ import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.helezs.managePojo.ManageWritingsDAO;
 import com.helezs.pojo.Writings;
 
-@Controller
+@Controller("homePageAction")
 @Scope("prototype")
 public class HomePageAction {
 	@Resource
 	private ManageWritingsDAO manageWritingsDAO;
 	private List<Writings> lw;
 
-	public String execute() {
-		try{
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String home() {
+		try {
 			lw = manageWritingsDAO.searchWritings();
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 			lw = null;
 		}
-		return "success";
+		return "home/home";
 	}
 
 	public List<Writings> getLw() {
@@ -34,5 +37,5 @@ public class HomePageAction {
 	public void setLw(List<Writings> lw) {
 		this.lw = lw;
 	}
-	
+
 }

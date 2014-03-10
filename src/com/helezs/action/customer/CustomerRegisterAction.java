@@ -7,47 +7,40 @@ import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.helezs.managePojo.ManageCustomerDAO;
 import com.helezs.pojo.Customer;
 
-@Controller
+@Controller("customerRegisterAction")
 @Scope("prototype")
 public class CustomerRegisterAction {
 	private Customer customer;
-	private String id;
-	private String name;
-	private String telephone;
-	private String idleTime;
-	private String qq;
-	private String microLetter;
-	private String mail;
-	private String leaveMessage;
 	private List<Customer> customers;
-	private boolean flag;
 	@Resource
 	private ManageCustomerDAO manageCustomerDAO;
 
+	@RequestMapping(value = "wantviewPage", method = RequestMethod.GET)
 	public String viewPage() {
-		return "success";
+		return "customer/register";
 	}
 
-	public String addCustomer() {
-		Customer c = new Customer();
+	@RequestMapping(value = "wantaddCustomer", method = RequestMethod.POST)
+	@ResponseBody
+	public String addCustomer(@ModelAttribute("customer") Customer customer) {
+		Customer c = customer;
 		String id = UUID.randomUUID().toString().replace("-", "");
 		c.setId(id);
-		c.setName(name);
-		c.setTelephone(telephone);
-		c.setIdleTime(idleTime);
-		c.setQQ(qq);
-		c.setMicroLetter(microLetter);
-		c.setMail(mail);
-		c.setLeaveMessage(leaveMessage);
-		flag = manageCustomerDAO.addCustomer(c);
-		if (flag) {
-			return "addCustomer";
+		boolean flag = manageCustomerDAO.addCustomer(c);
+		if (flag == true) {
+			return "true";
 		} else {
-			return "addFalse";
+			// false
+			return "";
 		}
 	}
 
@@ -62,84 +55,12 @@ public class CustomerRegisterAction {
 	}
 
 	public String searchCustomerById() {
-		customer = manageCustomerDAO.searchCustomerById(id);
+		customer = manageCustomerDAO.searchCustomerById("");
 		return "searchCustomerById";
 	}
 
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getTelephone() {
-		return telephone;
-	}
-
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
-	}
-
-	public String getIdleTime() {
-		return idleTime;
-	}
-
-	public void setIdleTime(String idleTime) {
-		this.idleTime = idleTime;
-	}
-
-	public String getQq() {
-		return qq;
-	}
-
-	public void setQq(String qq) {
-		this.qq = qq;
-	}
-
-	public String getMicroLetter() {
-		return microLetter;
-	}
-
-	public void setMicroLetter(String microLetter) {
-		this.microLetter = microLetter;
-	}
-
-	public String getMail() {
-		return mail;
-	}
-
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-
-	public String getLeaveMessage() {
-		return leaveMessage;
-	}
-
-	public void setLeaveMessage(String leaveMessage) {
-		this.leaveMessage = leaveMessage;
-	}
-
-	public boolean isFlag() {
-		return flag;
-	}
-
-	public void setFlag(boolean flag) {
-		this.flag = flag;
 	}
 
 	public List<Customer> getCustomers() {

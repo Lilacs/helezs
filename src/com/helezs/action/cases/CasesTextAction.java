@@ -2,18 +2,26 @@ package com.helezs.action.cases;
 
 import javax.annotation.Resource;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.helezs.managePojo.ManageWritingsDAO;
 import com.helezs.pojo.Writings;
 
+@Controller("casesTextAction")
+@Scope("prototype")
 public class CasesTextAction {
 	private String id;
 	private Writings writings;
 	@Resource
 	private ManageWritingsDAO manageWritingsDAO;
 
-	public String execute() {
+	@RequestMapping(value = "/casesText", method = RequestMethod.GET)
+	public String casesText() {
 		writings = manageWritingsDAO.searchWritingsWithId(id);
-		return "success";
+		return "cases/casesText";
 	}
 
 	public String getId() {

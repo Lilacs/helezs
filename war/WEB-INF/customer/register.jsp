@@ -105,6 +105,7 @@
 								<option value="1">上午9:00-11:00</option>
 								<option value="2">下午2:00-5:00</option>
 								<option value="3">晚上7:00-8:00</option>
+								<option value="4">双休日联系我</option>
 							</select>
 						</td>
 					</tr>	
@@ -138,7 +139,7 @@
 				<p>保存成功,我们会及时与您联系,点击确定返回首页!</p>
 			</div>	
 			<div id="dialog-fail" title="添加失败">
-				<p align="center">你真的能看到我么?</p>
+				<p align="center">保存失败,请重试!</p>
 			</div>	
 				
 				

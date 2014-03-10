@@ -1,18 +1,22 @@
 package com.helezs.action.manageItem;
 
-import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.helezs.managePojo.ManageWritingsDAO;
 import com.helezs.pojo.Writings;
-import com.helezs.util.CommonIdentity;
-@Controller
+
+@Controller("manageWritingsAction")
 @Scope("prototype")
 public class ManageWritingsAction {
 	private String id;
@@ -26,8 +30,16 @@ public class ManageWritingsAction {
 	@Resource
 	private ManageWritingsDAO manageWritings;
 
+	@RequestMapping(value = "manageIndex", method = RequestMethod.GET)
+	public String manageIndex() {
+		return "manageItem/manageItem";
+	}
+
 	// 添加
-	public String addOne() {
+	@RequestMapping(value = "toaddWritings", method = RequestMethod.POST)
+	@ResponseBody
+	public String toaddWritings(String title, String content,
+			String classification, boolean top) {
 		Writings w = new Writings();
 		String id = UUID.randomUUID().toString().replace("-", "");
 		w.setId(id);
@@ -37,52 +49,71 @@ public class ManageWritingsAction {
 		w.setTop(top);
 		try {
 			flag = manageWritings.addWritings(w);
-			return "doSuccess";
+			if (flag == true) {
+				return "true";
+			} else {
+				return "";// false
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return CommonIdentity.ADD_FALSE;
+			return "";// false
 		}
 	}
 
 	// 按分类查询
-	public String listByClassification() {
+	@RequestMapping(value = "tolistByClassification", method = RequestMethod.POST)
+	@ResponseBody
+	public Map tolistByClassification(String classification) {
 		try {
 			writingsByClassification = manageWritings
 					.searchWritingsByClassification(classification);
-			return "listByClassification";
+			Map map = new HashMap();
+			map.put("writings",writingsByClassification);
+			return map;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return CommonIdentity.QUERY_EXCEPTION;
+			return null;
 		}
 	}
 
 	// 查询单条信息
-	public String searchById() {
+	@RequestMapping(value = "tosearchWritingsById", method = RequestMethod.POST)
+	@ResponseBody
+	public Map tosearchWritingsById(String id) {
 		try {
 			writings = manageWritings.searchWritingsWithId(id);
-			return "searchById";
+			Map map = new HashMap();
+			map.put("writings", writings);
+			return map;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return CommonIdentity.QUERY_EXCEPTION;
+			return null;
 		}
 	}
 
 	// 删除单条信息
-	public String delById() {
+	@RequestMapping(value = "todelWritingsById", method = RequestMethod.POST)
+	@ResponseBody
+	public String todelWritingsById(String id) {
 		try {
-			manageWritings.delWritings(id);
-			flag = true;
-			return "doSuccess";
+			flag = manageWritings.delWritings(id);
+			if (flag == true) {
+				return "true";
+			} else {
+				return "";
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			flag = false;
-			return CommonIdentity.QUERY_EXCEPTION;
+			return "";
 		}
 	}
 
-	//更新一条信息
-	public String updateById(){
-		try{
+	// 更新一条信息
+	@RequestMapping(value = "toupdateWritingsById", method = RequestMethod.POST)
+	@ResponseBody
+	public String toupdateWritingsById(String id, String title, String content,
+			String classification, boolean top) {
+		try {
 			Writings w = new Writings();
 			w.setId(id);
 			w.setTitle(title);
@@ -90,11 +121,15 @@ public class ManageWritingsAction {
 			w.setClassification(classification);
 			w.setTop(top);
 			flag = manageWritings.updateWritings(w);
-		}catch(Exception e){
+			if (flag == true) {
+				return "true";
+			} else {
+				return "";// false
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
-			flag = false;
+			return "";// false
 		}
-		return "doSuccess";
 	}
 
 	public String getId() {

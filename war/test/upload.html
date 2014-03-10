@@ -5,24 +5,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="uploadImg" enctype="multipart/form-data" method="post">
-		<table width="90%" border="0" cellspacing="2" cellpadding="3"
-			align="center">
-			<tr bgcolor="f5f5f5">
-				<td width="22%">
-					<div align="right">图片：</div>
-				</td>
-				<td width="78%"><input type="file" name="uploadFile" />
-				</td>
-			</tr>
-			<tr bgcolor="f5f5f5">
-				<td colspan="2">
-					<div align="center">
-						<input type="submit" value=" 确 定 ">
-					</div>
-				</td>
-			</tr>
-		</table>
-</form>
+	<form action="/uploadImg" method="post" enctype="multipart/form-data">
+      <input name="comment">
+      <input name="file1" type="file">
+      <input name="file2" type="file">
+      <input name="file3" type="file">
+      <input name="file4" type="file">
+      <input name="file5" type="file">
+    </form>
 </body>
 </html>

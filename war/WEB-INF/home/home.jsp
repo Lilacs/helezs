@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8" import="java.util.*,com.helezs.pojo.Writings"%>
-<%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -120,7 +119,7 @@
 					<div style="margin-left: 8px;margin-top: 20px;">
 						<table cellspacing="12px">
 							<!-- 最多可放置7行 -->
-							<s:iterator value="lw" var="writings" id="writings">
+<%-- 							<s:iterator value="lw" var="writings" id="writings">
 								<s:if test='#writings.classification == "events"'>
 									<tr height="20px;">
 										<td><img src="images/marked.png"/></td>
@@ -130,7 +129,7 @@
 									</tr>
 								</s:if>
 							</s:iterator>
-						</table>
+ --%>						</table>
 					</div>
 				</td>
 			</tr>
@@ -167,14 +166,14 @@
 					</div>
 					<div style="margin-left: 38px;margin-top: 20px;">
 						<table cellspacing="12px">
-							<s:iterator value="lw" var="writings" id="writings">
+							<%-- <s:iterator value="lw" var="writings" id="writings">
 								<s:if test='#writings.classification == "knowledgeDecoration"'>
 									<tr>
 										<td><img src="images/marked.png"/></td>
 										<td width="230px;"><span style="cursor: pointer;"><s:property value="#writings.title"/></span></td>
 									</tr>
 								</s:if>
-							</s:iterator>
+							</s:iterator> --%>
 						</table>
 					</div>
 				</td>

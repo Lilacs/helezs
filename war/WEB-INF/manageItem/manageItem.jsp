@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -61,14 +60,14 @@
 		KindEditor.ready(function(K) {
 			//初始化添加对话框中的在线编辑器
 			editor = K.create('textarea[name="content"]', {
-				uploadJson : 'WEB-INF/jsp/upload_json.jsp',
-				fileManagerJson : 'WEB-INF/jsp/file_manager_json.jsp',
+				uploadJson : '/uploadImg',
+				fileManagerJson : '/getImage',
 				allowFileManager : true
 			});
 			//初始化添加对话框中的在线编辑器
 			editorEdit = K.create('textarea[name="content-edit"]', {
-				uploadJson : '../WEB-INF/jsp/upload_json.jsp',
-				fileManagerJson : '../WEB-INF/jsp/file_manager_json.jsp',
+				uploadJson : '/uploadImg',
+				fileManagerJson : '/getImage',
 				allowFileManager : true
 			});
 		});
@@ -80,14 +79,9 @@
 	function sendMsg(type) {
 		currentPage = type;
 		$("#milist").empty();
-		$
-				.post(
-						"tolistByClassification",
-						{
-							"classification" : type
-						},
-						function(data) {
+		$.post("tolistByClassification",{"classification" : type},function(datas) {
 							//data 已经可以返回
+							var data = datas.writings;
 							if (data) {
 								for (var i = 0; i < data.length; i++) {
 									var title = data[i].title;
@@ -96,7 +90,7 @@
 									var id = data[i].id + "";
 									var editHref = "<a onclick=\"openEditDialog('"+id+"')\">" + title + "</a>";
 									;
-									var delHref = "<a onclick=\"delById('" + id
+									var delHref = "<a onclick=\"todelWritingsById('" + id
 											+ "')\">删除</a>";
 									var dom = "<tr><td width=\"300px;\">"
 											+ editHref
@@ -109,7 +103,7 @@
 									$("#milist").append(dom);
 								}
 							}
-						});
+		});
 	}
 	
 	//添加数据
@@ -122,7 +116,7 @@
 		var content = editor.html();
 		currentPage = classification;
 		//发送请求
-		$.post("toaddOne",{"title":title,"classification":classification,"top":top,"content":content},function(flag){
+		$.post("toaddWritings",{"title":title,"classification":classification,"top":top,"content":content},function(flag){
 			//获得响应
 			if(flag){
 				//处理结果
@@ -135,8 +129,8 @@
 		});
 	}
 	//删除数据
-	function delById(id) {
-		$.post("todelById", {
+	function todelWritingsById(id) {
+		$.post("todelWritingsById", {
 			"id" : id
 		}, function(flag) {
 			if (flag) {
@@ -177,7 +171,8 @@
 	//打开编辑窗口并填充
 	function openEditDialog(id) {
 		//获取后台数据
-		$.post("tosearchById",{"id":id},function(data){
+		$.post("tosearchWritingsById",{"id":id},function(datas){
+			var data = datas.writings;
 			if(data){
 				//打开窗口设置数值
 				$("#id-edit").val(data.id);
@@ -199,7 +194,7 @@
 		var top = $("#top-edit").is(':checked');
 		var content = editorEdit.html();
 		currentPage = classification; 
-		$.post("toupdateById",{"id":id,"title":title,"classification":classification,"top":top,"content":content},function(flag){
+		$.post("toupdateWritingsById",{"id":id,"title":title,"classification":classification,"top":top,"content":content},function(flag){
 			if(flag){
 				editDialog.dialog("close");
 				refresh();
