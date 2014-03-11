@@ -87,3 +87,6 @@
 #menu .icon {
 	
 }
+
+/* 表格只有底边线条*/
+/*border-bottom: 1px;border-color: gray;border-style: ridge;border-right-width: 0px;border-left-width: 0px;border-top-width: 0px;*/

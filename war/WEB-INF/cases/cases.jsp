@@ -38,29 +38,105 @@
 			<!-- 风格:美式、欧式、现代、新中式、混搭、地中海、复式、东南亚、工装、田园 -->
 		</div>
 		<div class="contentRight">
-			
-			<!-- 内容列表(暂无分页) -->
-			<table cellspacing="12px" style="margin-left: 50px;">
-				<thead>
-					<tr>
-						<td></td>
-						<td>文章标题</td>
-						<td>时间</td>
-						<td></td>
-					</tr>
-				</thead>
-				<%-- <s:iterator value="decorationCaseWritings" var="writings">
-					<tr height="20px;">
-						<td><img src="images/marked.png"/></td>
-						<td width="400px;"><a style="cursor: pointer;!color: black;" href="casesText?id=${writings.id }"><s:property value="#writings.title"/></a></td>
-						<td width="70px;"><span style="color: gray;font-size: 10;cursor: default;"><s:date name="#writings.creationTimeD" format="yyyy-MM-dd"/></span></td>
-						<td><s:if test="#writings.top == true"><img src="images/news.png"/></s:if></td>
-					</tr>
-				</s:iterator> --%>
+			<!-- 内容列表(暂无分页) --> 
+			<table style="margin-left: 50px;">
+				<tr>
+					<td width="120px;" height="90px;" align="center"><img src="images/index01.jpg" style="width: 80px;height: 80px;border-radius:4em;"></td>
+					<td width="455px;" valign="middle">
+						<div><a href="#">女白领辞职亲自装修新房 小户型68平变身大豪宅</a></div>
+						<div style="font-size: small;color: gray;cursor: default;">
+							<label>户型:</label><span>三室一厅</span>
+							<label>面积:</label><span>125M²</span>
+							<label>风格:</label><span>欧式</span>
+						</div>
+						<div style="font-size: 15;color: graytext;">
+							<label>副标题:</label><span>房子全明户型，变成有一屁股房贷的澎湃青年~~ </span>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table style="margin-left: 50px;">
+				<tr>
+					<td width="120px;" height="90px;" align="center"><img src="images/index01.jpg" style="width: 80px;height: 80px;border-radius:4em;"></td>
+					<td width="455px;" valign="middle">
+						<div><a href="#">女白领辞职亲自装修新房 小户型68平变身大豪宅</a></div>
+						<div style="font-size: small;color: gray;cursor: default;">
+							<label>户型:</label><span>三室一厅</span>
+							<label>面积:</label><span>125M²</span>
+							<label>风格:</label><span>欧式</span>
+						</div>
+						<div style="font-size: 15;color: graytext;">
+							<label>副标题:</label><span>房子全明户型，变成有一屁股房贷的澎湃青年~~ </span>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table style="margin-left: 50px;">
+				<tr>
+					<td width="120px;" height="90px;" align="center"><img src="images/index01.jpg" style="width: 80px;height: 80px;border-radius:4em;"></td>
+					<td width="455px;" valign="middle">
+						<div><a href="#">女白领辞职亲自装修新房 小户型68平变身大豪宅</a></div>
+						<div style="font-size: small;color: gray;cursor: default;">
+							<label>户型:</label><span>三室一厅</span>
+							<label>面积:</label><span>125M²</span>
+							<label>风格:</label><span>欧式</span>
+						</div>
+						<div style="font-size: 15;color: graytext;">
+							<label>副标题:</label><span>房子全明户型，变成有一屁股房贷的澎湃青年~~ </span>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table style="margin-left: 50px;">
+				<tr>
+					<td width="120px;" height="90px;" align="center"><img src="images/index01.jpg" style="width: 80px;height: 80px;border-radius:4em;"></td>
+					<td width="455px;" valign="middle">
+						<div><a href="#">女白领辞职亲自装修新房 小户型68平变身大豪宅</a></div>
+						<div style="font-size: small;color: gray;cursor: default;">
+							<label>户型:</label><span>三室一厅</span>
+							<label>面积:</label><span>125M²</span>
+							<label>风格:</label><span>欧式</span>
+						</div>
+						<div style="font-size: 15;color: graytext;">
+							<label>副标题:</label><span>房子全明户型，变成有一屁股房贷的澎湃青年~~ </span>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table style="margin-left: 50px;">
+				<tr>
+					<td width="120px;" height="90px;" align="center"><img src="images/index01.jpg" style="width: 80px;height: 80px;border-radius:4em;"></td>
+					<td width="455px;" valign="middle">
+						<div><a href="#">女白领辞职亲自装修新房 小户型68平变身大豪宅</a></div>
+						<div style="font-size: small;color: gray;cursor: default;">
+							<label>户型:</label><span>三室一厅</span>
+							<label>面积:</label><span>125M²</span>
+							<label>风格:</label><span>欧式</span>
+						</div>
+						<div style="font-size: 15;color: graytext;">
+							<label>副标题:</label><span>房子全明户型，变成有一屁股房贷的澎湃青年~~ </span>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table style="margin-left: 50px;">
+				<tr>
+					<td width="120px;" height="90px;" align="center"><img src="images/index01.jpg" style="width: 80px;height: 80px;border-radius:4em;"></td>
+					<td width="455px;" valign="middle">
+						<div><a href="#">女白领辞职亲自装修新房 小户型68平变身大豪宅</a></div>
+						<div style="font-size: small;color: gray;cursor: default;">
+							<label>户型:</label><span>三室一厅</span>
+							<label>面积:</label><span>125M²</span>
+							<label>风格:</label><span>欧式</span>
+						</div>
+						<div style="font-size: 15;color: graytext;">
+							<label>副标题:</label><span>房子全明户型，变成有一屁股房贷的澎湃青年~~ </span>
+						</div>
+					</td>
+				</tr>
 			</table>
 		</div>
 	</div>
-	
 	<%@include file="/WEB-INF/common/foot.jsp" %>
 </body>
 </html>
