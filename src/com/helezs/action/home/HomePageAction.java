@@ -18,7 +18,18 @@ public class HomePageAction {
 	@Resource
 	private ManageWritingsDAO manageWritingsDAO;
 	private List<Writings> lw;
-
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String index() {
+		try {
+			lw = manageWritingsDAO.searchWritings();
+		} catch (Exception e) {
+			e.printStackTrace();
+			lw = null;
+		}
+		return "home/home";
+	}
+	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String home() {
 		try {

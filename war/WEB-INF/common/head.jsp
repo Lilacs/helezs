@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    <div style="position:fixed;visibility:visible; right: 46px; bottom: 120px; border: 0px;z-index: 99;overflow: hidden;">
+    	<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=35039138&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:35039138:53" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+    </div>
 	<div style="position:fixed; width:150px; height:100px; visibility:visible; right: 10px; bottom: 10px; border: 0px;z-index: 99;overflow: hidden;">
 		<a href="wantviewPage"><img src="images/iwant.gif" style="cursor: pointer;"/></a>
 		<a href="wantviewPage"><img src="images/iwant2.gif" style="cursor: pointer;"/></a>
@@ -14,7 +17,7 @@
 					</tr>
 				</table>
 			</span>
-			<table border="0">
+			<table>
 				<tr>
 					<td><img src="images/logo.png"/></td>
 					<td>
