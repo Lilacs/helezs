@@ -7,8 +7,9 @@ import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
-@PersistenceCapable 
-public class Writings implements Serializable{
+
+@PersistenceCapable
+public class Writings implements Serializable {
 	// id
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
@@ -28,11 +29,8 @@ public class Writings implements Serializable{
 	@Persistent
 	private String title;
 	// 类型(鉴别属于哪一个模块)
-	//knowledgeDecoration 装修知识
-	//decorationCase 装修案例
-	//events 活动推广
-	//designTeam 设计团队
-	//contact 联系方式
+	// knowledgeDecoration 装修知识、decorationCase 装修案例、events 活动推广、designTeam
+	// 设计团队、contact 联系方式
 	@Persistent
 	private String classification;
 	// 内容
@@ -42,6 +40,25 @@ public class Writings implements Serializable{
 	@Persistent
 	private boolean isTop;
 
+	// 户型
+	@Persistent
+	private String apartmentLayout;
+
+	// 面积
+	@Persistent
+	private String area;
+
+	// 风格
+	@Persistent
+	private String style;
+
+	// 副标题
+	@Persistent
+	private String Subtitle;
+	
+	// 阅读次数
+	@Persistent
+	private long Count = 0;
 
 	public String getId() {
 		return id;
@@ -122,6 +139,45 @@ public class Writings implements Serializable{
 	public void setModifyTimeD(Date modifyTimeD) {
 		this.modifyTimeD = modifyTimeD;
 	}
-	
+
+	public String getApartmentLayout() {
+		return apartmentLayout;
+	}
+
+	public void setApartmentLayout(String apartmentLayout) {
+		this.apartmentLayout = apartmentLayout;
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	public String getStyle() {
+		return style;
+	}
+
+	public void setStyle(String style) {
+		this.style = style;
+	}
+
+	public String getSubtitle() {
+		return Subtitle;
+	}
+
+	public void setSubtitle(String subtitle) {
+		Subtitle = subtitle;
+	}
+
+	public long getCount() {
+		return Count;
+	}
+
+	public void setCount(long count) {
+		Count = count;
+	}
 
 }

@@ -18,7 +18,7 @@
 	<%@include file="/WEB-INF/common/head.jsp" %>
 	<div  class="contentArea">
 		<!-- 内容区域 -->
-		<table height="650px;" width="100%">
+		<table height="650px;" width="100%" style="margin-top: 70px;">
 			<tr>
 				<td width="33%" valign="top" align="center">
 					<img src="images/designersPhoto/designDirector.jpg" class="designerPic">
@@ -33,7 +33,7 @@
 					</p>
 				</td>
 				<td width="33%" valign="top" align="center">
-					<img src="images/index03.jpg" class="designerPic">
+					<img src="images/designersPhoto/designersWeihao.jpg" class="designerPic">
 					<h1>设计师:王威浩</h1>
 					<h4>&nbsp;</h4>
 					<p class="contentP" align="left">
@@ -45,7 +45,7 @@
 					</p>
 				</td>
 				<td width="33%" valign="top" align="center">
-					<img src="images/index04.jpg" class="designerPic">
+					<img src="images/designersPhoto/designersWenjing.jpg" class="designerPic">
 					<h1>设计师:王文静</h1>
 					<h4>&nbsp;</h4>
 					<p class="contentP" align="left">

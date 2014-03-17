@@ -66,6 +66,7 @@ public class ManageWritingsImpl implements ManageWritingsDAO{
 			_writings.setTop(writings.isTop());
 			_writings.setModifyTime(new Date().getTime());
 			_writings.setModifyTimeD(new Date());
+			_writings.setCount(writings.getCount());
 			pm.currentTransaction().commit();
 			return true;
 		} catch (Exception ex) {

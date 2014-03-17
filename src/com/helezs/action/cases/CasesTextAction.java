@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.helezs.managePojo.ManageWritingsDAO;
 import com.helezs.pojo.Writings;
@@ -13,31 +14,17 @@ import com.helezs.pojo.Writings;
 @Controller("casesTextAction")
 @Scope("prototype")
 public class CasesTextAction {
-	private String id;
-	private Writings writings;
 	@Resource
 	private ManageWritingsDAO manageWritingsDAO;
 
 	@RequestMapping(value = "/casesText", method = RequestMethod.GET)
-	public String casesText() {
-		writings = manageWritingsDAO.searchWritingsWithId(id);
-		return "cases/casesText";
+	public ModelAndView casesText(String id) {
+		Writings writings = manageWritingsDAO.searchWritingsWithId(id);
+		ModelAndView mv = new ModelAndView("cases/casesText");
+		mv.addObject("writings", writings);
+		// 增加阅读次数
+		writings.setCount(writings.getCount() + 1);
+		manageWritingsDAO.updateWritings(writings);
+		return mv;
 	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public Writings getWritings() {
-		return writings;
-	}
-
-	public void setWritings(Writings writings) {
-		this.writings = writings;
-	}
-
 }

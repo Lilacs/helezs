@@ -31,7 +31,6 @@
 			autoOpen : false,
 			height : 700,
 			width : 835,
-			modal : true,
 			buttons : {
 				"添加文章" : function() {
 					add();
@@ -46,7 +45,6 @@
 			autoOpen : false,
 			height : 700,
 			width : 835,
-			modal : true,
 			buttons : {
 				"确认修改" : function() {
 					update();
@@ -88,10 +86,10 @@
 									var creationTime = conversionTime(data[i].creationTime);
 									var modifyTime = conversionTime(data[i].modifyTime);
 									var id = data[i].id + "";
-									var editHref = "<a onclick=\"openEditDialog('"+id+"')\">" + title + "</a>";
+									var editHref = "<a onclick=\"openEditDialog('"+id+"')\" style=\"cursor: pointer;\">" + title + "</a>";
 									;
 									var delHref = "<a onclick=\"todelWritingsById('" + id
-											+ "')\">删除</a>";
+											+ "')\" style=\"cursor: pointer;\">删除</a>";
 									var dom = "<tr><td width=\"300px;\">"
 											+ editHref
 											+ "</td><td  align=\"center\" width=\"120px;\">"
@@ -217,12 +215,13 @@
 	<div>
 		<!-- 分类 -->
 		<ul id="menu" style="width: 96px; float: left;">
-			<li id="miDecorationCase" onclick="sendMsg('decorationCase')"><a>装修案例</a></li>
-			<li id="miEvents" onclick="sendMsg('events')"><a>活动推广</a></li>
+			<li id="miDecorationCase" onclick="sendMsg('decorationCase')" style="cursor: pointer;"><a>装修案例</a></li>
+			<li id="miEvents" onclick="sendMsg('events')" style="cursor: pointer;"><a>活动推广</a></li>
 			<li id="miKnowledgeDecoration"
-				onclick="sendMsg('knowledgeDecoration')"><a>装修知识</a></li>
-			<li id="miDesignTeam" onclick="sendMsg('designTeam')"><a>设计团队</a></li>
-			<li id="miContact" onclick="sendMsg('contact')"><a>联系方式</a></li>
+				onclick="sendMsg('knowledgeDecoration')" style="cursor: pointer;"><a>装修知识</a></li>
+			<li id="miAboutUs" onclick="sendMsg('aboutUs')" style="cursor: pointer;"><a>公司概况</a></li>
+			<li id="miDesignTeam" onclick="sendMsg('designTeam')" style="cursor: pointer;"><a>设计团队</a></li>
+			<li id="miContact" onclick="sendMsg('contact')" style="cursor: pointer;"><a>联系方式</a></li>
 		</ul>
 		<!-- 列表 -->
 		<table style="margin-left: 200px; width: 800px;" border="1">
@@ -245,6 +244,7 @@
 					name="classification" id="classification">
 					<option value="decorationCase">装修案例</option>
 					<option value="knowledgeDecoration">装修知识</option>
+					<option value="aboutUs">公司概况</option>
 					<option value="events">活动推广</option>
 					<option value="designTeam">设计团队</option>
 					<option value="contact">联系方式</option>
@@ -265,6 +265,7 @@
 					name="classification-edit" id="classification-edit">
 					<option value="decorationCase">装修案例</option>
 					<option value="knowledgeDecoration">装修知识</option>
+					<option value="aboutUs">公司概况</option>
 					<option value="events">活动推广</option>
 					<option value="designTeam">设计团队</option>
 					<option value="contact">联系方式</option>

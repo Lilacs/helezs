@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8" import="java.util.*,com.helezs.pojo.Writings"%>
+<%@ page import="com.helezs.pojo.Writings" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -44,6 +47,9 @@
 </head>
 
 <body class="mainBody">
+	<% 
+		List<Writings> lw = (List<Writings>)request.getAttribute("allData");
+	%>
 	<%@include file="/WEB-INF/common/head.jsp" %>
 	<div style="width: 960px; margin-bottom: 0px; margin-left: auto; margin-right: auto; margin-top: 10;border-radius:3em;overflow:hidden;">
 		<div id="slides">
@@ -111,25 +117,43 @@
 					</div>
 				</td>
 				<!-- 活动新闻 -->
+				<!-- 首页显示7条活动新闻的数据 -->
 				<td valign="top"  class="modulebackground">
 					<div style="height: 30px;"  class="titlebackground">
 						<img src="images/eventsNews.png" class="titleStyle" />
-						<img src="images/more.png" class="moreStyle" />
+						<a href="events"><img src="images/more.png" class="moreStyle" /></a>
 					</div>
-					<div style="margin-left: 8px;margin-top: 20px;">
+					<div style="margin-left: 8px;margin-top: 10px;">
 						<table cellspacing="12px">
 							<!-- 最多可放置7行 -->
-<%-- 							<s:iterator value="lw" var="writings" id="writings">
-								<s:if test='#writings.classification == "events"'>
+								<%
+									int count = 0;
+									for(Writings w : lw){
+										if(w.getClassification().equals("events") && count < 7){
+											count++;
+										
+								%>
 									<tr height="20px;">
 										<td><img src="images/marked.png"/></td>
-										<td width="210px;"><span style="cursor: pointer;"><s:property value="#writings.title"/></span></td>
-										<td width="70px;"><span style="color: gray;font-size: 10;cursor: default;"><s:date name="#writings.creationTimeD" format="yyyy-MM-dd"/></span></td>
-										<td><s:if test="#writings.top == true"><img src="images/news.png"/></s:if></td>
+										<td width="210px;"><a href="eventsText?id=<%=w.getId() %>" style="cursor: pointer;color: black;"><%=w.getTitle() %></a></td>
+										<td width="70px;"><span style="color: gray;font-size: 10;cursor: default;"><%=new SimpleDateFormat("yyyy-MM-dd").format(w.getCreationTimeD()) %></span></td>
+										<td>
+											<%
+												if(w.isTop() == true){
+											%>
+												<img src="images/news.png"/>
+											<%
+												}
+											%>	
+										</td>
 									</tr>
-								</s:if>
-							</s:iterator>
- --%>						</table>
+								<%		
+										
+										}
+									}
+								%>
+									
+ 							</table>
 					</div>
 				</td>
 			</tr>
@@ -155,25 +179,33 @@
 				<td height="230px;" valign="top"  class="modulebackground">
 					<div style="height: 30px;" class="titlebackground">
 						<img src="images/designTeam.png" class="titleStyle" />
-						<img src="images/more.png" class="moreStyle" />
+						<a href="designTeam"><img src="images/more.png" class="moreStyle" /></a>
 					</div>
+					
 				</td>
 				<!-- 装修知识 -->
+				<!-- 首页显示6条装修知识的数据 -->
 				<td  valign="top"  class="modulebackground">
 					<div style="height: 30px;" class="titlebackground">
 						<img src="images/knowledgeDecoration.png" class="titleStyle" />
 						<a href="knowledgeDecoration"><img src="images/more.png" class="moreStyle"  /></a>
 					</div>
-					<div style="margin-left: 38px;margin-top: 20px;">
+					<div style="margin-left: 38px;margin-top: 5px;">
 						<table cellspacing="12px">
-							<%-- <s:iterator value="lw" var="writings" id="writings">
-								<s:if test='#writings.classification == "knowledgeDecoration"'>
-									<tr>
-										<td><img src="images/marked.png"/></td>
-										<td width="230px;"><span style="cursor: pointer;"><s:property value="#writings.title"/></span></td>
-									</tr>
-								</s:if>
-							</s:iterator> --%>
+							<%
+								int count2 = 0;
+								for(Writings w : lw){
+									if(w.getClassification().equals("knowledgeDecoration") && count2 < 6){
+										count2++;
+							%>
+								<tr>
+									<td><img src="images/marked.png"/></td>
+									<td width="230px;"><a href="knowledgeDecorationText?id=<%=w.getId() %>" style="cursor: pointer;"><%=w.getTitle() %></a></td>
+								</tr>
+							<%		
+									}
+								}
+							%>
 						</table>
 					</div>
 				</td>

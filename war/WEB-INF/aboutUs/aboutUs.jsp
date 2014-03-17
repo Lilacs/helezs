@@ -5,6 +5,7 @@
 <html>
 <head>
 <link href="css/global.css" rel="stylesheet" media="all">
+<link href="css/aboutUs.css" rel="stylesheet" media="all">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <script src="js/jquery-1.8.3.min.js"></script>
 <script src="js/slides.min.jquery.js"></script>
@@ -15,6 +16,16 @@
 
 <body class="mainBody">
 	<%@include file="/WEB-INF/common/head.jsp" %>
-	正在建设中……	
+	<div  class="contentArea">
+		<%
+			Writings writings = (Writings)request.getAttribute("aboutUs");
+			if(writings != null){
+		%>
+			<%=writings.getContent() %>
+		<%
+			}
+		%>
+	</div>
+	<%@include file="/WEB-INF/common/foot.jsp" %>
 </body>
 </html>

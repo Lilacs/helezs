@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ page import="com.helezs.pojo.Writings" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -39,102 +41,44 @@
 		</div>
 		<div class="contentRight">
 			<!-- 内容列表(暂无分页) --> 
-			<table style="margin-left: 50px;">
+			<div style="margin-left: 50px;">
+				<span>位置></span><a href="#">装修案例</a>
+			</div>
+			<br />
+			<br />
+			<%
+				List<Writings> lw = (List)request.getAttribute("decorationCaseWritings");
+				if(lw.size() != 0){
+					for(Writings w : lw){
+			%>
+			<table style="margin-left: 50px;background-color: #FAFAFA;border-radius:5px;margin-top: 2px;" cellspacing="0px;" border="0">
 				<tr>
-					<td width="120px;" height="90px;" align="center"><img src="images/index01.jpg" style="width: 80px;height: 80px;border-radius:4em;"></td>
-					<td width="455px;" valign="middle">
-						<div><a href="#">女白领辞职亲自装修新房 小户型68平变身大豪宅</a></div>
+					<td width="120px;" height="90px;" align="center" rowspan="4"><img src="images/index01.jpg" style="width: 80px;height: 80px;border-bottom-left-radius: 4em;border-top-left-radius: 4em;"></td>
+				</tr>
+				<tr>
+					<td width="455px;" valign="middle"><div><a href="casesText?id=<%=w.getId() %>" style="font-weight: bold;"><%=w.getTitle() %></a></div></td>
+				</tr>
+				<tr>
+					<td>
 						<div style="font-size: small;color: gray;cursor: default;">
-							<label>户型:</label><span>三室一厅</span>
-							<label>面积:</label><span>125M²</span>
-							<label>风格:</label><span>欧式</span>
+							<label>户型:</label><span><%=w.getApartmentLayout() == null ? "暂无" : w.getApartmentLayout()%></span>&nbsp;&nbsp;
+							<label>面积:</label><span><%=w.getArea() == null ? "暂无" : w.getArea()%>㎡</span>&nbsp;&nbsp;&nbsp;
+							<label>风格:</label><span><%=w.getStyle() == null ? "暂无" : w.getStyle()%></span>
 						</div>
-						<div style="font-size: 15;color: graytext;">
-							<label>副标题:</label><span>房子全明户型，变成有一屁股房贷的澎湃青年~~ </span>
+					</td>
+				</tr>
+				<tr>	
+					<td>
+						<div style="color: graytext;font-weight: lighter;font-size: small;">
+							<label>简介:</label><span><%=w.getSubtitle() == null ? "暂无" : w.getSubtitle() %></span>
 						</div>
 					</td>
 				</tr>
 			</table>
-			<table style="margin-left: 50px;">
-				<tr>
-					<td width="120px;" height="90px;" align="center"><img src="images/index01.jpg" style="width: 80px;height: 80px;border-radius:4em;"></td>
-					<td width="455px;" valign="middle">
-						<div><a href="#">女白领辞职亲自装修新房 小户型68平变身大豪宅</a></div>
-						<div style="font-size: small;color: gray;cursor: default;">
-							<label>户型:</label><span>三室一厅</span>
-							<label>面积:</label><span>125M²</span>
-							<label>风格:</label><span>欧式</span>
-						</div>
-						<div style="font-size: 15;color: graytext;">
-							<label>副标题:</label><span>房子全明户型，变成有一屁股房贷的澎湃青年~~ </span>
-						</div>
-					</td>
-				</tr>
-			</table>
-			<table style="margin-left: 50px;">
-				<tr>
-					<td width="120px;" height="90px;" align="center"><img src="images/index01.jpg" style="width: 80px;height: 80px;border-radius:4em;"></td>
-					<td width="455px;" valign="middle">
-						<div><a href="#">女白领辞职亲自装修新房 小户型68平变身大豪宅</a></div>
-						<div style="font-size: small;color: gray;cursor: default;">
-							<label>户型:</label><span>三室一厅</span>
-							<label>面积:</label><span>125M²</span>
-							<label>风格:</label><span>欧式</span>
-						</div>
-						<div style="font-size: 15;color: graytext;">
-							<label>副标题:</label><span>房子全明户型，变成有一屁股房贷的澎湃青年~~ </span>
-						</div>
-					</td>
-				</tr>
-			</table>
-			<table style="margin-left: 50px;">
-				<tr>
-					<td width="120px;" height="90px;" align="center"><img src="images/index01.jpg" style="width: 80px;height: 80px;border-radius:4em;"></td>
-					<td width="455px;" valign="middle">
-						<div><a href="#">女白领辞职亲自装修新房 小户型68平变身大豪宅</a></div>
-						<div style="font-size: small;color: gray;cursor: default;">
-							<label>户型:</label><span>三室一厅</span>
-							<label>面积:</label><span>125M²</span>
-							<label>风格:</label><span>欧式</span>
-						</div>
-						<div style="font-size: 15;color: graytext;">
-							<label>副标题:</label><span>房子全明户型，变成有一屁股房贷的澎湃青年~~ </span>
-						</div>
-					</td>
-				</tr>
-			</table>
-			<table style="margin-left: 50px;">
-				<tr>
-					<td width="120px;" height="90px;" align="center"><img src="images/index01.jpg" style="width: 80px;height: 80px;border-radius:4em;"></td>
-					<td width="455px;" valign="middle">
-						<div><a href="#">女白领辞职亲自装修新房 小户型68平变身大豪宅</a></div>
-						<div style="font-size: small;color: gray;cursor: default;">
-							<label>户型:</label><span>三室一厅</span>
-							<label>面积:</label><span>125M²</span>
-							<label>风格:</label><span>欧式</span>
-						</div>
-						<div style="font-size: 15;color: graytext;">
-							<label>副标题:</label><span>房子全明户型，变成有一屁股房贷的澎湃青年~~ </span>
-						</div>
-					</td>
-				</tr>
-			</table>
-			<table style="margin-left: 50px;">
-				<tr>
-					<td width="120px;" height="90px;" align="center"><img src="images/index01.jpg" style="width: 80px;height: 80px;border-radius:4em;"></td>
-					<td width="455px;" valign="middle">
-						<div><a href="#">女白领辞职亲自装修新房 小户型68平变身大豪宅</a></div>
-						<div style="font-size: small;color: gray;cursor: default;">
-							<label>户型:</label><span>三室一厅</span>
-							<label>面积:</label><span>125M²</span>
-							<label>风格:</label><span>欧式</span>
-						</div>
-						<div style="font-size: 15;color: graytext;">
-							<label>副标题:</label><span>房子全明户型，变成有一屁股房贷的澎湃青年~~ </span>
-						</div>
-					</td>
-				</tr>
-			</table>
+			<%	
+					}
+				}
+			%>
 		</div>
 	</div>
 	<%@include file="/WEB-INF/common/foot.jsp" %>
