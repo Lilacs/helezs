@@ -1,0 +1,91 @@
+1.检测kindeditor上传图片的功能-----------完成
+2.将文章布局排版:已完成左侧布局,剩余右侧文章内容布局(完成)与列表布局(完成)
+3.ie浏览器调试或者屏蔽
+4.所有错误链接请求都转发到主页
+5.更改添加页面:实现方式-用户登录后,访问网站则显示新建或者编辑按钮----------(完成功能)
+	这样的验证方式感觉不太好,每次访问所有页面都需要查询session的话效率可能会较慢,所以还是单独开发后台管理系统
+待解决问题:
+表单的二次提交问题
+重写url
+搜索引擎的优化
+
+
+添加出错页面(在web.xml中添加):
+<!-- 出错页面定义 -->  
+    <error-page>  
+        <exception-type>java.lang.Throwable</exception-type>  
+        <location>/common/500.jsp</location>  
+    </error-page>  
+    <error-page>  
+        <error-code>500</error-code>  
+        <location>/common/500.jsp</location>  
+    </error-page>  
+    <error-page>  
+        <error-code>404</error-code>  
+        <location>/common/404.jsp</location>  
+    </error-page>  
+    <error-page>  
+        <error-code>403</error-code>  
+        <location>/common/403.jsp</location>  
+    </error-page>  
+    
+    
+    
+    
+    
+    
+ <?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+			http://www.springframework.org/schema/mvc
+	    	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd">
+
+
+	<!-- 开启组件扫描技术 -->
+	<!-- 开启IoC -->
+	<context:component-scan base-package="com.helezs"></context:component-scan>
+	<!-- 开启AOP -->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+	<!-- HandlerMapping <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/> -->
+
+	<!-- HandlerAdapter -->
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="cacheSeconds" value="0" />
+		<!-- 配置一下对json数据的转换 -->
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"></bean>
+			</list>
+		</property>
+	</bean>
+	<!-- 转换上传文件的空间控件 -->
+	<bean id="multipartResolver" class="org.gmr.web.multipart.GMultipartResolver">
+		<property name="maxUploadSize" value="1048576" />
+	</bean>
+
+	<!-- 拦截器 -->
+	<!-- <mvc:interceptors>
+		<bean class="com.helezs.action.interceptor.CheckLogin"></bean>
+		<mvc:interceptor>
+			<mvc:mapping path="/manageIndex"/>
+			<bean class="com.helezs.action.interceptor.CheckLogin"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors> -->
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+</beans>   
