@@ -23,4 +23,15 @@ public interface ManageWritingsDAO {
 		
 		//按照分类查询
 		public List<Writings> searchWritingsByClassification(String classification);
+		
+		//按照分类查询该分类共有多少条记录
+		public int countByClassification(String classification);
+		
+		//按照分类分页查询
+		public List<Writings> PagingQueryByClassification(int pageNumber,String classification);
+		
+		
+		
+		
+		
 }

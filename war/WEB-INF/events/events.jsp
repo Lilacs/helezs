@@ -38,8 +38,8 @@
 			<div style="margin-left: 50px;">
 				<span>位置></span><a href="#">活动推广</a>
 			</div>
-			<div style="background-color: #FAFAFA;height: 650px;margin-left: 50px;">
-				<table width="600px;" style="margin-left: 50px;border-radius:5px;margin-top: 1px;" cellspacing="10px;" border="0">
+			<div style="background-color: #FAFAFA;height: 550px;margin-left: 50px;">
+				<table width="600px;" style="margin-left: 50px;border-radius:5px;margin-top: 1px;" cellspacing="12px;" border="0">
 					<% 
 						List<Writings> lw = (List<Writings>)request.getAttribute("events");
 						if(lw.size() != 0){
@@ -60,6 +60,45 @@
 					%>
 					
 				</table>
+			</div>
+			<div style="margin-left: 50px;margin-bottom: 0px;background-color: #FAFAFA;" align="center">
+				<%
+					int pageSize = (Integer)(request.getAttribute("pageSize") == null ? 0:request.getAttribute("pageSize"));
+					int p = (Integer)(request.getAttribute("page") == null ? 0:request.getAttribute("page"));
+					if(p == 1){
+				%>
+						<a>上一页</a>	
+				<%
+					}else{
+				%>
+						<a href="events?pageNumber=<%=p-1 %>">上一页</a>	
+				<%
+					}
+				%>
+				<%
+					for(int i = 1;i <= pageSize; i++){
+						if(i == p){
+				%>
+					<a  style="color: red;"><%=i %></a>
+				<%			
+						continue;
+						}
+				%>
+					<a href="events?pageNumber=<%=i %>"><%=i %></a>	
+				<%
+					}
+				%>
+				<%
+					if(p == pageSize){
+				%>
+					<a>下一页</a>	
+				<%		
+					}else{
+				%>
+					<a href="events?pageNumber=<%=p+1 %>">下一页</a>	
+				<%		
+					}
+				%>
 			</div>
 		</div>
 	</div>

@@ -3,6 +3,7 @@ package com.helezs.action.events;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -20,11 +21,17 @@ public class EventsPageAction {
 	private ManageWritingsDAO manageWritingsDAO;
 
 	@RequestMapping(value = "/events", method = RequestMethod.GET)
-	public ModelAndView events() {
-		List<Writings> lw = manageWritingsDAO
-				.searchWritingsByClassification("events");
+	public ModelAndView events(HttpServletRequest request) {
+		int pageNumber = 1;
 		ModelAndView mv = new ModelAndView("events/events");
+		if(request.getParameter("pageNumber") != null){
+			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+		}
+		List<Writings> lw = manageWritingsDAO.PagingQueryByClassification(pageNumber, "events");
+		int pageSize = manageWritingsDAO.countByClassification("events");
 		mv.addObject("events", lw);
+		mv.addObject("pageSize",pageSize);
+		mv.addObject("page",pageNumber);
 		return mv;
 	}
 

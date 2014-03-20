@@ -23,7 +23,7 @@ public class Contact implements Serializable {
 	private String phone;
 
 	public Contact() {
-
+		
 	}
 
 	public Contact(String name, String email, String phone) {

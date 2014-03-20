@@ -13,7 +13,7 @@ import com.helezs.pojo.Writings;
 import com.helezs.util.PMF;
 @Repository
 public class ManageWritingsImpl implements ManageWritingsDAO{
-
+	public static int numberOfShows = 15;
 	@Override
 	public boolean addWritings(Writings writings) {
 		PersistenceManager pm = PMF.getPersistenceManagerFactory()
@@ -84,7 +84,9 @@ public class ManageWritingsImpl implements ManageWritingsDAO{
 		PersistenceManager pm = PMF.getPersistenceManagerFactory()
 				.getPersistenceManager();
 		String query = "select from " + Writings.class.getName();
-		return (List<Writings>) pm.newQuery(query).execute();
+		Query q = pm.newQuery(query);
+		q.setOrdering("creationTime desc");
+		return (List<Writings>) q.execute();
 	}
 	
 	//分类查询(测试可以通过)
@@ -120,6 +122,45 @@ public class ManageWritingsImpl implements ManageWritingsDAO{
 			pm.close();
 		}
 		
+	}
+
+	@Override
+	//按照分类查询该分类共有多少条记录,计算出多少页并返回
+	public int countByClassification(String classification) {	
+		List<Writings> lw = this.searchWritingsByClassification(classification);
+		int size = lw.size();
+		if(size == 0){
+			return 1;
+		}
+		if(size%numberOfShows > 0){
+			return size/numberOfShows + 1;
+		}else{
+			return size/numberOfShows;
+		}
+	}
+
+	@Override
+	//按照分类分页查询
+	public List<Writings> PagingQueryByClassification(int pageNumber,
+			String classification) {
+		PersistenceManager pm = PMF.getPersistenceManagerFactory().getPersistenceManager();
+		Query q = pm.newQuery(Writings.class);
+		q.setFilter("classification == searchClassification");
+		q.declareParameters("String searchClassification");
+		int start = (pageNumber-1)*numberOfShows;
+		int end = start+numberOfShows;
+		
+		try{
+			q.setRange(start,end);
+			q.setOrdering("creationTime desc");
+			List<Writings> results =(List<Writings>) q.execute(classification);
+			return results;
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}finally{
+			pm.close();
+		}
 	}
 	
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -21,15 +22,20 @@ public class KnowledgeDecorationPageAction {
 	private ManageWritingsDAO manageWritingsDAO;
 
 	@RequestMapping(value = "/knowledgeDecoration", method = RequestMethod.GET)
-	public ModelAndView knowledgeDecoration() {
-		List<Writings> lw = manageWritingsDAO
-				.searchWritingsByClassification("knowledgeDecoration");
-		ModelAndView mv = new ModelAndView(
-				"knowledgeDecoration/knowledgeDecoration");
+	public ModelAndView knowledgeDecoration(HttpServletRequest request) {
+		int pageNumber = 1;
+		ModelAndView mv = new ModelAndView("knowledgeDecoration/knowledgeDecoration");
+		if(request.getParameter("pageNumber") != null){
+			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+		}
+		List<Writings> lw = manageWritingsDAO.PagingQueryByClassification(pageNumber, "knowledgeDecoration");
+		int pageSize = manageWritingsDAO.countByClassification("knowledgeDecoration");
 		mv.addObject("knowledgeDecoration", lw);
+		mv.addObject("pageSize",pageSize);
+		mv.addObject("page",pageNumber);
 		return mv;
 	}
-
+	
 	@RequestMapping(value = "/knowledgeDecorationText", method = RequestMethod.GET)
 	public ModelAndView casesText(String id) {
 		Writings writings = manageWritingsDAO.searchWritingsWithId(id);

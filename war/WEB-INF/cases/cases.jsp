@@ -45,7 +45,7 @@
 				<span>位置></span><a href="#">装修案例</a>
 			</div>
 			<br />
-			<br />
+			<div style="min-height: 550px;">
 			<%
 				List<Writings> lw = (List)request.getAttribute("decorationCaseWritings");
 				if(lw.size() != 0){
@@ -79,6 +79,46 @@
 					}
 				}
 			%>
+			</div>
+			<div style="margin-left: 50px;margin-bottom: 0px;" align="center">
+				<%
+					int pageSize = (Integer)(request.getAttribute("pageSize") == null ? 0:request.getAttribute("pageSize"));
+					int p = (Integer)(request.getAttribute("page") == null ? 0:request.getAttribute("page"));
+					if(p == 1){
+				%>
+						<a style="color: gray;">上一页</a>	
+				<%
+					}else{
+				%>
+						<a href="cases?pageNumber=<%=p-1 %>">上一页</a>	
+				<%
+					}
+				%>
+				<%
+					for(int i = 1;i <= pageSize; i++){
+						if(i == p){
+				%>
+					<a  style="color: red;"><%=i %></a>
+				<%			
+						continue;
+						}
+				%>
+					<a href="cases?pageNumber=<%=i %>"><%=i %></a>	
+				<%
+					}
+				%>
+				<%
+					if(p == pageSize){
+				%>
+					<a style="color: gray;">下一页</a>	
+				<%		
+					}else{
+				%>
+					<a href="cases?pageNumber=<%=p+1 %>">下一页</a>	
+				<%		
+					}
+				%>
+			</div>
 		</div>
 	</div>
 	<%@include file="/WEB-INF/common/foot.jsp" %>
