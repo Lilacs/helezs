@@ -25,7 +25,6 @@ public class CheckLogin implements HandlerInterceptor{
 			Object obj) throws Exception {
 		String user = (String) request.getSession().getAttribute("user");
 		if("1".equals(user)){
-			System.out.println("---------user is 1--");
 			return true;
 		}else{
 			request.getRequestDispatcher("/login").forward(request, response);
