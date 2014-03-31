@@ -43,6 +43,7 @@ public class EventsPageAction {
 		writings.setCount(writings.getCount() + 1);
 		manageWritingsDAO.updateWritings(writings);
 		mv.addObject("writings", writings);
+		mv.addObject("content", writings.getContent().getValue());
 		return mv;
 	}
 }

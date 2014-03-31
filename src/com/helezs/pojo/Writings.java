@@ -8,6 +8,8 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
+import com.google.appengine.api.datastore.Text;
+
 @PersistenceCapable
 public class Writings implements Serializable {
 	// id
@@ -35,7 +37,7 @@ public class Writings implements Serializable {
 	private String classification;
 	// 内容
 	@Persistent
-	private String content;
+	private Text content;
 	// 是否置顶
 	@Persistent
 	private boolean isTop;
@@ -108,11 +110,11 @@ public class Writings implements Serializable {
 		this.classification = classification;
 	}
 
-	public String getContent() {
+	public Text getContent() {
 		return content;
 	}
 
-	public void setContent(String content) {
+	public void setContent(Text content) {
 		this.content = content;
 	}
 

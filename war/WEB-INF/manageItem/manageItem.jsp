@@ -177,7 +177,7 @@
 				$("#title-edit").val(data.title);
 				$("#classification-edit").val(data.classification);
 				$("#top-edit").attr("checked",data.top);
-				editorEdit.html(data.content);
+				editorEdit.html(datas.content);
 				$("#dialog-form-edit").dialog("open");
 			}
 			

@@ -42,7 +42,6 @@ public class HomePageAction {
 				continue;
 			}
 			Writings writings = w;
-			writings.setContent("");
 			returnlw.add(writings);
 		}
 		mv.addObject("allData", returnlw);
