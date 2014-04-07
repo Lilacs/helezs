@@ -22,6 +22,7 @@ public class CasesTextAction {
 		Writings writings = manageWritingsDAO.searchWritingsWithId(id);
 		ModelAndView mv = new ModelAndView("cases/casesText");
 		mv.addObject("writings", writings);
+		mv.addObject("content", writings.getContent().getValue());
 		// 增加阅读次数
 		writings.setCount(writings.getCount() + 1);
 		manageWritingsDAO.updateWritings(writings);

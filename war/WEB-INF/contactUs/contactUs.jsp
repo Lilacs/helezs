@@ -21,9 +21,10 @@
 	<div  class="contentArea">
 		<%
 			Writings writings = (Writings)request.getAttribute("contactUs");
-			if(writings != null){
+			String content = (String)request.getAttribute("content");
+			if(content != null){
 		%>
-			<%=writings.getContent() %>
+			<%=content %>
 		<%
 			}
 		%>

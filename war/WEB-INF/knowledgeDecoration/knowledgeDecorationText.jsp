@@ -40,6 +40,7 @@
 			<!-- 内容列表(暂无分页) --> 
 			<%
 				Writings writings = (Writings)request.getAttribute("writings");
+				String content = (String)request.getAttribute("content");
 			%>
 			<div style="margin-left: 50px;color: green;">
 				<div>位置><a href="knowledgeDecoration" style="color: green;">装修知识</a>>文章正文</div>
@@ -60,7 +61,7 @@
 				</tr>
 				<tr>
 					<td>
-						<div style="margin: 50px;">${writings.content }</div>
+						<div style="margin: 50px;">${content }</div>
 					</td>
 				</tr>
 			</table>

@@ -26,6 +26,7 @@ public class AboutUsPageAction {
 		//为了省事,这个文章中只有一条.
 		if(lw.size() != 0){
 			mv.addObject("aboutUs", lw.get(0));
+			mv.addObject("content", lw.get(0).getContent().getValue());
 		}
 		return mv;
 	}
