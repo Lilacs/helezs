@@ -3,6 +3,7 @@
 <%@ page import="com.helezs.pojo.Writings" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="com.google.appengine.api.datastore.Text" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -37,6 +38,7 @@
 		<div class="contentRight">
 			<%
 				Writings writings = (Writings)request.getAttribute("writings");
+				String content = (String)request.getAttribute("content");
 			%>
 			<div style="margin-left: 50px;color: green;">
 				<div>位置><a href="events" style="color: green;">活动推广</a>>文章正文</div>
@@ -57,7 +59,7 @@
 				</tr>
 				<tr>
 					<td>
-						<div style="margin: 50px;">${writings.content }</div>
+						<div style="margin: 50px;">${content }</div>
 					</td>
 				</tr>
 			</table>

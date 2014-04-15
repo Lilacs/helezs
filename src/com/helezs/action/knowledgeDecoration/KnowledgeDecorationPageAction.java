@@ -42,6 +42,7 @@ public class KnowledgeDecorationPageAction {
 		ModelAndView mv = new ModelAndView(
 				"knowledgeDecoration/knowledgeDecorationText");
 		mv.addObject("writings", writings);
+		mv.addObject("content", writings.getContent().getValue());
 		// 增加阅读次数
 		writings.setCount(writings.getCount() + 1);
 		manageWritingsDAO.updateWritings(writings);

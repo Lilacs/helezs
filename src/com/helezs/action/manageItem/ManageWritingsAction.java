@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.appengine.api.datastore.Text;
 import com.helezs.managePojo.ManageWritingsDAO;
 import com.helezs.pojo.Writings;
 
@@ -44,7 +45,8 @@ public class ManageWritingsAction {
 		String id = UUID.randomUUID().toString().replace("-", "");
 		w.setId(id);
 		w.setTitle(title);
-		w.setContent(content);
+		Text t = new Text(content);
+		w.setContent(t);
 		w.setClassification(classification);
 		w.setTop(top);
 		try {
@@ -84,6 +86,7 @@ public class ManageWritingsAction {
 			writings = manageWritings.searchWritingsWithId(id);
 			Map map = new HashMap();
 			map.put("writings", writings);
+			map.put("content", writings.getContent().getValue());
 			return map;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -117,7 +120,7 @@ public class ManageWritingsAction {
 			Writings w = new Writings();
 			w.setId(id);
 			w.setTitle(title);
-			w.setContent(content);
+			w.setContent(new Text(content));
 			w.setClassification(classification);
 			w.setTop(top);
 			flag = manageWritings.updateWritings(w);
