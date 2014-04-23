@@ -108,7 +108,5 @@
 		</div>
 	</div>
 	<%@include file="/WEB-INF/common/foot.jsp" %>
-	<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
-    <script src="/js/bootstrap-3.0.3/js/bootstrap.min.js"></script>
 </body>
 </html>

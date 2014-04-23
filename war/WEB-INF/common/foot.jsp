@@ -9,3 +9,5 @@
 		©2014 HeLeZS Inc.<br /> HeLeZS® The new way to design your home™
 	</p>
 </div>
+<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script src="/js/bootstrap-3.0.3/js/bootstrap.min.js"></script>
