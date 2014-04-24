@@ -7,9 +7,9 @@
 <head>
 <link href="css/global.css" rel="stylesheet" media="all">
 <link href="css/cases.css" rel="stylesheet" media="all">
+<link href="js/bootstrap-3.0.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="js/bootstrap-3.0.3/css/bootstrap-theme.min.css" rel="stylesheet">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<script src="js/jquery-1.8.3.min.js"></script>
-<script src="js/slides.min.jquery.js"></script>
 <title>菏泽和乐居装饰-装修案例-官方网站|菏泽装修|菏泽最好的装饰装修公司|菏泽装修公司|菏泽装修|菏泽家装|菏泽装修设计</title>
 <meta content="菏泽和乐居装饰主要经营项目:房屋装修,家居装饰,室内设计,别墅装修,宾馆装修等.打造专业品质装修装饰,装修热线 184 5400 0379 " name="description">
 <meta content="菏泽装修|菏泽家装|菏泽最好的装修公司|菏泽最好的装饰公司|菏泽装修|菏泽装饰|菏泽装修公司|菏泽装饰公司|菏泽房屋装修|菏泽二手房屋装修|菏泽装修设计|家居装饰|会所装修|宾馆装修" name="keywords">
@@ -40,9 +40,13 @@
 			<!-- 风格:美式、欧式、现代、新中式、混搭、地中海、复式、东南亚、工装、田园 -->
 		</div>
 		<div class="contentRight">
-			<!-- 内容列表(暂无分页) --> 
+			<!-- 内容列表 --> 
+			<!-- 面包屑导航 -->
 			<div style="margin-left: 50px;">
-				<span>位置></span><a href="#">装修案例</a>
+				<ol class="breadcrumb" style="width: 140px;">
+				  <li><span>位置</span></li>
+				  <li><a href="cases" class="active">装修案例</a></li>
+				</ol>
 			</div>
 			<br />
 			<div style="min-height: 550px;">
@@ -81,16 +85,17 @@
 			%>
 			</div>
 			<div style="margin-left: 50px;margin-bottom: 0px;" align="center">
+				<ul class="pagination">
 				<%
 					int pageSize = (Integer)(request.getAttribute("pageSize") == null ? 0:request.getAttribute("pageSize"));
 					int p = (Integer)(request.getAttribute("page") == null ? 0:request.getAttribute("page"));
 					if(p == 1){
 				%>
-						<a style="color: gray;">上一页</a>	
+						<li><a style="color: gray;">上一页</a></li>
 				<%
 					}else{
 				%>
-						<a href="cases?pageNumber=<%=p-1 %>">上一页</a>	
+						<li><a href="cases?pageNumber=<%=p-1 %>">上一页</a></li>
 				<%
 					}
 				%>
@@ -98,26 +103,27 @@
 					for(int i = 1;i <= pageSize; i++){
 						if(i == p){
 				%>
-					<a  style="color: red;"><%=i %></a>
+					<li><a  style="color: red;"><%=i %></a></li>
 				<%			
 						continue;
 						}
 				%>
-					<a href="cases?pageNumber=<%=i %>"><%=i %></a>	
+					<li><a href="cases?pageNumber=<%=i %>"><%=i %></a></li>
 				<%
 					}
 				%>
 				<%
 					if(p == pageSize){
 				%>
-					<a style="color: gray;">下一页</a>	
+					<li><a style="color: gray;">下一页</a></li>
 				<%		
 					}else{
 				%>
-					<a href="cases?pageNumber=<%=p+1 %>">下一页</a>	
+					<li><a href="cases?pageNumber=<%=p+1 %>">下一页</a></li>
 				<%		
 					}
 				%>
+				</ul>
 			</div>
 		</div>
 	</div>
