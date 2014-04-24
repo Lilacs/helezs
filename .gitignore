@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /war/WEB-INF/lib
 tmp/
 *.tmp
@@ -20,10 +20,6 @@ local.properties
 .target
 # TeXlipse plugin
 .texlipse
-.DS_Store
-=======
-
 war/WEB-INF/appengine-generated/datastore-indexes-auto.xml
->>>>>>> developer
-
 .DS_Store
+war/WEB-INF/appengine-generated/local_db.bin
