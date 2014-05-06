@@ -27,7 +27,7 @@
 				<td width="33%" valign="top" align="center">
 					<img src="images/designersPhoto/designDirector.jpg" class="designerPic">
 					<h1>设计总监:刘鹏</h1>
-					<h4>国家注册建筑装饰高级设计师</h4>
+					<h4>高级设计师</h4>
 					<p class="contentP" align="left">
 						设计理念：灵感随笔<br/>
 						工作年限：5年以上&nbsp;&nbsp;<br/>
