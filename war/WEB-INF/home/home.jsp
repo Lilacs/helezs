@@ -75,16 +75,25 @@
 	<div class="container">
 		<div class="row">
 			<!-- 公司简介 -->
-			<div class="col-md-6 col-md-offset-1 well" style="height: 330px;">
+			<div class="col-md-6 col-md-offset-1 col-sm-8 well" style="height: 330px;">
 				<div style="height: 30px;" class="titlebackground">
 					<img src="images/companyProfile.png" class="titleStyle" />
 				</div>
-				<div style="margin-left: 20px; margin-top: 16px;">
+				<div style="margin-top: 16px;" class="col-md-4">
 					<img src="images/view/company.png" style="float: left;" />
+				</div>
+				<div style="margin-left: 20px; " class="col-md-7">
+						<h3>选择和乐居的5大亮点</h3>
+						1.工程不发包，工人统一由公司直接管理。<br/>
+						2.施工过程中，公司自带监理，全程监督。<br/>
+						3.全部材料由业主及专业人士检验后进场。<br/>
+						4.设计师五年以上从业资格，全程跟踪。<br/>
+						5.工程结束公司赠送隐蔽工程照片。<br/><br/>
+						表面工程保2年，电路工程保10年，水路工程保50年。<br/>
 				</div>
 			</div>
 			<!-- 活动新闻 -->
-			<div class="col-md-4 well" style="height: 330px;">
+			<div class="col-md-4 well col-sm-4" style="height: 330px;">
 				<div style="height: 30px;" class="titlebackground">
 					<img src="images/eventsNews.png" class="titleStyle" /> <a
 						href="events"><img src="images/more.png" class="moreStyle" /></a>
@@ -116,13 +125,14 @@
 				<div style="height: 30px" class="titlebackground">
 					<img src="images/virtualCase.png" class="titleStyle" />
 				</div>
-				<div style="margin-top: 12px;" align="center">
-					<!-- <marquee  onmouseover=stop() onmouseout=start()> -->
-					<img src="images/view/view1.jpg" /> <img
-						src="images/view/view1.jpg" /> <img src="images/view/view1.jpg" />
-					<img src="images/view/view1.jpg" /> <img
-						src="images/view/view1.jpg" />
-					<!-- </marquee> -->
+				<div style="margin-top: 12px;width: 100%" align="center">
+					<marquee  onmouseover=stop() onmouseout=start()>
+					<img src="images/view/view1.jpg" />
+					<img src="images/view/view6.jpg" />
+					<img src="images/view/view3.jpg" />
+					<img src="images/view/view4.jpg" />
+					<img src="images/view/view5.jpg" />
+					</marquee>
 				</div>
 			</div>
 		</div>
@@ -133,6 +143,24 @@
 				<div style="height: 30px;" class="titlebackground">
 					<img src="images/designTeam.png" class="titleStyle" /> <a
 						href="designTeam"><img src="images/more.png" class="moreStyle" /></a>
+				</div>
+				<div style="margin-top: 20px;">
+					<table align="center">
+						<tr align="center">
+							<td>
+								<img src="images/designersPhoto/designDirector.jpg" style="width: 150px;height: 150px;" class="designerPic"><br/>
+								<h4>设计总监:刘鹏</h4>
+							</td>
+							<td>
+								<img src="images/designersPhoto/designersWeihao.jpg"  style="width: 150px;height: 150px;" class="designerPic">
+								<h4>设计师:王威浩</h4>
+							</td>
+							<td>
+								<img src="images/designersPhoto/designersWenjing.jpg" style="width: 150px;height: 150px;" class="designerPic">
+								<h4>设计师:王文静</h4>
+							</td>
+						</tr>
+					</table>
 				</div>
 			</div>
 			<!-- 装修知识 -->
